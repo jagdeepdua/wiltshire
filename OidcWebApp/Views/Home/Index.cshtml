@@ -1,0 +1,14 @@
+﻿@using OidcWebApp_Multiple.Utils;
+@{
+    ViewBag.Title = "Home Page";
+    string mode = " : ";
+    if (Globals.UseB2C)
+    {
+        mode = " : B2C ";
+    }
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET OpenID Authentication against @mode Azure Active Directory</p>
+</div>

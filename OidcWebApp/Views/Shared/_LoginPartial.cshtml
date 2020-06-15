@@ -1,0 +1,26 @@
+﻿@using OidcWebApp_Multiple.Utils;
+@{
+    string signinLabel = "Sign in";
+}
+@if (Globals.UseB2C)
+{
+    signinLabel = "Sign up / Sign in";
+}
+
+@if (Request.IsAuthenticated)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a id="profile-link">@User.Identity.Name</a>
+        </li>
+        <li>
+            @Html.ActionLink("Sign out", "SignOut", "Account")
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink(@signinLabel, "SignUpSignIn", "Account", routeValues: null, htmlAttributes: new { id = "signUpSignInLink" })</li>
+    </ul>
+}
